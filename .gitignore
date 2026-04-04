@@ -1,0 +1,50 @@
+# Exécutables
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Fichiers objets
+*.o
+*.obj
+
+# Base de données
+*.db
+*.sqlite
+*.sqlite3
+
+# Environnements virtuels
+venv/
+env/
+.venv/
+
+# Node modules
+node_modules/
+dashboard/node_modules/
+
+# Logs
+*.log
+logs/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.cache
+
+# Dossiers de build
+build/
+dist/
+out/
+output/
+
+# DLL (on garde pas dans git)
+lib/sqlite/*.dll
+lib/sqlite/*.def
+
+# Secrets
+.env
+*.secret
