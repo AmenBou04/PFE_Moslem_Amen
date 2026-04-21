@@ -1,0 +1,385 @@
+/* App.css - Styles globaux modernes avec Montserrat */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0b1221;
+  --surface: rgba(255, 255, 255, 0.08);
+  --surface-strong: rgba(255, 255, 255, 0.12);
+  --text: #f8fafc;
+  --muted: #b0b7c1;
+  --primary: #5f6cff;
+  --primary-dark: #3f4acc;
+  --accent: #7b61ff;
+  --border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top left, #141b35 0%, #0b1221 45%, #0a0f1b 100%);
+}
+
+body {
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+main {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+.card,
+.paper {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.section {
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: var(--text);
+}
+
+h1 {
+  font-size: clamp(2rem, 2.6vw, 3.4rem);
+}
+
+p,
+span,
+label {
+  color: white;
+}
+
+button.primary {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border: none;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 16px;
+  transition: transform 0.24s ease, box-shadow 0.24s ease, opacity 0.24s ease;
+  box-shadow: 0 16px 30px rgba(95, 108, 255, 0.32);
+}
+
+button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(95, 108, 255, 0.4);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: rgba(95, 108, 255, 0.9);
+  box-shadow: 0 0 0 6px rgba(95, 108, 255, 0.12);
+}
+
+::placeholder {
+  color: rgba(240, 248, 255, 0.55);
+}
+
+.alert {
+  background: rgba(255, 91, 113, 0.12);
+  border: 1px solid rgba(255, 91, 113, 0.25);
+  padding: 16px 18px;
+  border-radius: 18px;
+  color: #ffd3dc;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 18px;
+  }
+
+  .section {
+    padding: 20px;
+    margin-bottom: 18px;
+  }
+
+  button.primary {
+    width: 100%;
+  }
+}
+/* Animation pour les nouvelles alertes */
+@keyframes pulse {
+    0% { background-color: #ffebee; }
+    50% { background-color: #ffcdd2; }
+    100% { background-color: #ffebee; }
+}
+
+.alert-critical {
+    animation: pulse 1s ease-in-out;
+}
+.MuiBox-root css-mribl2 span{
+  color: white;
+}
+
+.modern-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(3, 8, 20, 0.62);
+  backdrop-filter: blur(4px);
+  z-index: 1600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.26s ease;
+}
+
+.modern-modal-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modern-modal {
+  width: min(480px, 100%);
+  background: linear-gradient(155deg, rgba(18, 28, 51, 0.96), rgba(11, 17, 34, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  padding: 26px;
+  transform: translateY(16px) scale(0.97);
+  transition: transform 0.26s ease;
+  position: relative;
+}
+
+.modern-modal-overlay.is-open .modern-modal {
+  transform: translateY(0) scale(1);
+}
+
+.modern-modal-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #ffe4e8;
+  background: linear-gradient(145deg, rgba(255, 92, 114, 0.75), rgba(209, 56, 80, 0.9));
+  box-shadow: 0 12px 24px rgba(209, 56, 80, 0.35);
+}
+
+.modern-modal-badge-ai {
+  color: #e8f7ff;
+  background: linear-gradient(145deg, rgba(67, 191, 255, 0.84), rgba(34, 124, 219, 0.92));
+  box-shadow: 0 12px 24px rgba(34, 124, 219, 0.35);
+}
+
+.modern-modal-title {
+  margin: 14px 0 8px;
+  font-size: 1.25rem;
+  color: #f8fbff;
+}
+
+.modern-modal-message {
+  margin: 0;
+  color: #d2dbe9;
+  font-size: 0.98rem;
+}
+
+.alert-popup-details {
+  margin-top: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(116, 171, 255, 0.26);
+  background: rgba(18, 35, 67, 0.45);
+  padding: 12px;
+}
+
+.alert-popup-row {
+  margin: 0 0 8px;
+  color: #deebff;
+  font-size: 0.92rem;
+}
+
+.alert-popup-row:last-of-type {
+  margin-bottom: 0;
+}
+
+.alert-popup-description {
+  margin: 10px 0 0;
+  color: #c6d7f2;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.modern-modal-actions {
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.modern-btn {
+  min-width: 116px;
+  border: none;
+  border-radius: 14px;
+  padding: 11px 16px;
+  font-weight: 600;
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modern-btn:hover {
+  transform: translateY(-1px);
+}
+
+.modern-btn-secondary {
+  color: #d9e2f1;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.modern-btn-secondary:hover {
+  filter: brightness(1.05);
+}
+
+.modern-btn-danger {
+  color: #fff;
+  background: linear-gradient(125deg, #ff6f6f, #dc3d68);
+  box-shadow: 0 12px 28px rgba(220, 61, 104, 0.32);
+}
+
+.modern-btn-danger:hover {
+  filter: brightness(1.06);
+}
+
+.modern-toast {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(420px, calc(100vw - 32px));
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(10, 17, 33, 0.92);
+  color: #ebf1ff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(24px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1700;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.modern-toast.is-open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modern-toast-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #6ad7ff;
+  box-shadow: 0 0 0 6px rgba(106, 215, 255, 0.14);
+}
+
+.modern-toast-success .modern-toast-dot {
+  background: #60df86;
+  box-shadow: 0 0 0 6px rgba(96, 223, 134, 0.16);
+}
+
+.modern-toast-warning .modern-toast-dot {
+  background: #f7c04c;
+  box-shadow: 0 0 0 6px rgba(247, 192, 76, 0.16);
+}
+
+.modern-toast-error .modern-toast-dot {
+  background: #ff7d8d;
+  box-shadow: 0 0 0 6px rgba(255, 125, 141, 0.16);
+}
+
+@media (max-width: 680px) {
+  .modern-modal {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .modern-modal-actions {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .modern-btn {
+    width: 100%;
+  }
+
+  .modern-toast {
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    max-width: unset;
+  }
+}
+
+
